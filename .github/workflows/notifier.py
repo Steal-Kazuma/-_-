@@ -56,10 +56,10 @@ if __name__ == "__main__":
         if added_posts:
             for new_post in added_posts:
                 print(f"📢 新しい投稿を検出: ID={new_post}")
-                send_to_discord(f"📢 新しい投稿がありました！\n投稿ID: {new_post}")
+                send_to_discord(f"📢 みいから新しい投稿があります！\n投稿ID: {new_post}")
             latest_posts = new_posts  # **最新の投稿リストを更新**
         else:
             print("💤 新しい投稿はありません")
 
         print(f"📝 現在の latest_posts: {latest_posts}")  # 確認用ログ
-        time.sleep(5)  # 5秒ごとにチェック
+        time.sleep(60)  # 60秒ごとにチェック
