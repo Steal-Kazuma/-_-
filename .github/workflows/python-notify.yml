@@ -28,4 +28,4 @@ jobs:
         pip install requests beautifulsoup4  # 必要なライブラリをインストール
 
     - name: Run the notifier script
-      run: python /.github/workflows/notifier.py  # 作成した通知スクリプトを実行
+      run: python .github/workflows/notifier.py  # 作成した通知スクリプトを実行
