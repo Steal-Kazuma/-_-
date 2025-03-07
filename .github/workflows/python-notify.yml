@@ -2,8 +2,8 @@ name: Check New Posts
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # 10分ごとに実行される設定
-  workflow_dispatch:  # 手動実行を可能にする設定
+    - cron: '*/10 * * * *'  # 10分ごとに実行
+  workflow_dispatch:  # 手動実行を可能にする
 
 concurrency:
   group: check-new-post
@@ -15,12 +15,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # リポジトリのコードをチェックアウト
+      uses: actions/checkout@v2  # リポジトリのコードを取得
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'  # 正しいPythonバージョンに変更
+        python-version: '3.12'  # 使用するPythonのバージョンを修正
 
     - name: Install dependencies
       run: |
@@ -29,4 +29,4 @@ jobs:
         
     - name: Run the notifier script
       run: |
-        python .github/workflows/notifier.py  # 作成した通知スクリプトを実行
+        python .github/workflows/notifier.py  # 通知スクリプトを実行
