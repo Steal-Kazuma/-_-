@@ -2,8 +2,8 @@ name: Check New Posts
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # 10分ごとに実行される設定
-  workflow_dispatch:  # 手動実行を可能にする設定
+    - cron: '*/10 * * * *'  # 10分ごとに実行
+  workflow_dispatch:  # 手動実行を許可
   
   concurrency:
   group: check-new-post
