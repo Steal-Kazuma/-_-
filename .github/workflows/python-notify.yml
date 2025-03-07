@@ -25,4 +25,4 @@ jobs:
 
     - name: Run the notifier script
       run: |
-        python notifier.py  # 作成した通知スクリプトを実行
+        python .github/workflows/notifier.py  # 作成した通知スクリプトを実行
