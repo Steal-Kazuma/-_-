@@ -1,1 +1,33 @@
+name: Notify on Board Update
 
+# スケジュール設定（毎日、または任意の頻度）
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # 毎日午前0時に実行（UTC）
+  # 手動での実行も可能（必要であれば）
+  workflow_dispatch:
+
+jobs:
+  run-notifier:
+    runs-on: ubuntu-latest  # Ubuntu環境で実行
+    steps:
+      # リポジトリの内容をチェックアウト
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Python環境をセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # 使用するPythonのバージョン
+
+      # 必要な依存関係をインストール（requestsなど）
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # 必要に応じてrequirements.txtを使用
+
+      # notifier.pyを実行
+      - name: Run notifier script
+        run: |
+          python notifier.py  # 実行するスクリプト名に変更
