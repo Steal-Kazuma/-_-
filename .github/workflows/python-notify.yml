@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'  # 使用するPythonのバージョンを修正
+        python-version: '3.12'  # 使用するPythonのバージョン
 
     - name: Install dependencies
       run: |
@@ -30,3 +30,4 @@ jobs:
     - name: Run the notifier script
       run: |
         python .github/workflows/notifier.py  # 通知スクリプトを実行
+
