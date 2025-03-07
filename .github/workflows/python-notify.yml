@@ -6,6 +6,10 @@ on:
     - cron: '*/1 * * * *'  # 1分ごとに実行される設定
   workflow_dispatch:  # 手動実行を可能にする設定
 
+concurrency:
+  group: check-new-post  # グループ名を指定（自由に変更可能）
+  cancel-in-progress: true  # 進行中のジョブがあればキャンセル
+
 jobs:
   check_posts:
     runs-on: ubuntu-latest  # GitHub Actionsの実行環境
