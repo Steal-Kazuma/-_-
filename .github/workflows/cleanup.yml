@@ -2,7 +2,7 @@ name: Cleanup old workflow runs
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 毎日深夜に実行
+    - cron: '0 0 * * *'  # 毎日深夜0時に実行
 
   workflow_dispatch:  # 手動実行も可能
 
@@ -16,4 +16,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
-        older-than-days: 1  # 1日以上前の履歴を削除
+        retain_days: 1  # 1日以上前の履歴を削除
+        keep_minimum_runs: 2  # 最新の2件は残す
