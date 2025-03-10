@@ -1,0 +1,19 @@
+name: Cleanup old workflow runs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 毎日深夜に実行
+
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Delete old workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        older-than-days: 1  # 1日以上前の履歴を削除
